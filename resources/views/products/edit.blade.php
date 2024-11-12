@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Edit Product</h2>
+            <h2>Edit Menu</h2>
         </div>
         <div class="pull-right">
             <a class="btn btn-primary btn-sm mb-2" href="{{ route('products.index') }}"><i class="fa fa-arrow-left"></i> Back</a>
@@ -23,11 +23,15 @@
     </div>
 @endif
 
-<form action="{{ route('products.update',$product->id) }}" method="POST">
+<form action="{{ route('products.update',$product->id) }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
 
     <div class="row">
+    <div class="form-group">
+                <strong>Upload Menu:</strong>
+                <input type="file" name="image" class="form-control" accept="image/*">
+            </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Name:</strong>
@@ -36,8 +40,14 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
+                <strong>Price:</strong>
+                <input type="number" name="price" class="form-control" placeholder="Price" values="{{ $product->price }}">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
                 <strong>Detail:</strong>
-                <textarea class="form-control" style="height:150px" name="detail" placeholder="Detail">{{ $product->detail }}</textarea>
+                <textarea class="form-control" style="height:150px" name="description" placeholder="Description">{{ $product->description }}</textarea>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">

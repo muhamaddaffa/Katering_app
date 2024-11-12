@@ -28,9 +28,8 @@ class ProductController extends Controller
      */
     public function index(): View
     {
-        $products = Product::latest()->paginate(5);
-        return view('products.index',compact('products'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        $products = Product::latest()->get();
+        return view('products.index',compact('products'));
     }
     
     /**
@@ -53,13 +52,26 @@ class ProductController extends Controller
     {
         request()->validate([
             'name' => 'required',
-            'detail' => 'required',
+            'description' => 'required',
+            'price' => 'required|numeric',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
-    
+        
+        $this->uploadImage($request);
         Product::create($request->all());
     
         return redirect()->route('products.index')
                         ->with('success','Product created successfully.');
+    }
+    private function uploadImage($request)
+    {
+        $image = $request->file('image');
+        $ext = $image->getClientOriginalExtension();
+        $fileName = implode("_", explode(" ", $request->get('name')));
+        $fileName = $fileName . '.' . $ext;
+        $image->storeAs('public', $fileName);
+        $request->request->add(['image_path' => $fileName]);
+
     }
     
     /**
@@ -95,9 +107,12 @@ class ProductController extends Controller
     {
          request()->validate([
             'name' => 'required',
-            'detail' => 'required',
+            'description' => 'required',
+            'price' => 'required|numeric',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
-    
+        
+        $this->uploadImage($request);
         $product->update($request->all());
     
         return redirect()->route('products.index')

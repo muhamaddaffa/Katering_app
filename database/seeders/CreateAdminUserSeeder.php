@@ -35,6 +35,10 @@ class CreateAdminUserSeeder extends Seeder
  
         $customerUser = User::create([
             'name' => 'Rudi',
+            'company_name' => 'Katering Nusantara',
+            'address' => 'Jl. Merdeka No.10, Jakarta',
+            'contact' => '081234567890',
+            'description' => 'Menyediakan berbagai macam masakan tradisional Indonesia yang lezat dan berkualitas.',
             'email' => 'customer@gmail.com',
             'password' => bcrypt('123456')
         ]);
