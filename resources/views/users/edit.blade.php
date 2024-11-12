@@ -42,6 +42,24 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
+                <strong>Company Name:</strong>
+                <input type="text" name="company_name" placeholder="Company Name" class="form-control" value="{{ $user->company_name }}">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Address:</strong>
+                <input type="text" name="address" placeholder="Address" class="form-control" value="{{ $user->address }}">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Contact:</strong>
+                <input type="text" name="contact" placeholder="Contact" class="form-control" value="{{ $user->contact }}">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
                 <strong>Password:</strong>
                 <input type="password" name="password" placeholder="Password" class="form-control">
             </div>

@@ -13,31 +13,31 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'Nasi Goreng Ayam',
                 'description' => 'Nasi goreng dengan potongan ayam, telur, dan bumbu khas.',
-                'image_path' => 'images/nasi_goreng_ayam.jpg',
+                'image_path' => 'nasi_goreng_ayam.jpg',
                 'price' => 20000,
             ],
             [
                 'name' => 'Mie Goreng Spesial',
                 'description' => 'Mie goreng lezat dengan telur, sayuran, dan bumbu rempah pilihan.',
-                'image_path' => 'images/mie_goreng_spesial.jpg',
+                'image_path' => 'mie_goreng_spesial.jpg',
                 'price' => 18000,
             ],
             [
                 'name' => 'Ayam Bakar',
                 'description' => 'Ayam bakar dengan sambal pedas dan lalapan.',
-                'image_path' => 'images/ayam_bakar.jpg',
+                'image_path' => 'ayam_bakar.jpg',
                 'price' => 25000,
             ],
             [
                 'name' => 'Sate Ayam',
                 'description' => 'Sate ayam dengan bumbu kacang yang lezat dan nasi lontong.',
-                'image_path' => 'images/sate_ayam.jpg',
+                'image_path' => 'sate_ayam.jpg',
                 'price' => 15000,
             ],
             [
                 'name' => 'Bakso Sapi',
                 'description' => 'Bakso sapi dengan kuah kaldu gurih dan tambahan mi atau bihun.',
-                'image_path' => 'images/bakso_sapi.jpg',
+                'image_path' => 'bakso_sapi.jpg',
                 'price' => 12000,
             ],
         ];

@@ -34,14 +34,14 @@ class CreateAdminUserSeeder extends Seeder
         $merchantUser->assignRole([$merchantRole->id]);
  
         $customerUser = User::create([
-            'name' => 'Rudi',
-            'company_name' => 'Katering Nusantara',
-            'address' => 'Jl. Merdeka No.10, Jakarta',
-            'contact' => '081234567890',
-            'description' => 'Menyediakan berbagai macam masakan tradisional Indonesia yang lezat dan berkualitas.',
+            'name' => 'Yongki Aribowo',
+            'company_name' => 'KonsTech Indonesia',
+            'address' => 'Jl. Gatot Subroto No.5, Medan',
+            'contact' => '082134567891',
+            'description' => 'Software Company',
             'email' => 'customer@gmail.com',
             'password' => bcrypt('123456')
-        ]);
+            ]);
  
         $customerRole = Role::create(['name' => 'Customer']);
  

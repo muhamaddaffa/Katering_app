@@ -51,21 +51,24 @@
                                 </li>
                             @endif
                         @else
-                            <li><a class="nav-link" href="{{ route('users.index') }}">Manage Users</a></li>
-                            <li><a class="nav-link" href="{{ route('users.index') }}">Order</a></li>
+                            <li><a class="nav-link" href="{{ route('users.index') }}">Order List</a></li>
+                            @if(Auth::user()->hasRole('Merchant'))
                             <li><a class="nav-link" href="{{ route('roles.index') }}">Daftar Oder</a></li>
-                            <li><a class="nav-link" href="{{ route('products.index') }}">Pengelolaan Menu</a></li>
+                            @elseif(Auth::user()->hasRole('Customer'))
+                            <li><a class="nav-link" href="{{ route('users.index') }}">Order</a></li>
+                            @endif
+                            <li><a class="nav-link" href="{{ route('products.index') }}">Menu</a></li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Profile Merchant') }}
-                                    </a>
+                                @if(Auth::user()->hasRole('Merchant'))
+                                <a class="dropdown-item" href="{{ route('users.profile') }}">
+                                    {{ __('Profile Merchant') }}
+                                </a>
+                                @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

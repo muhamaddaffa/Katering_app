@@ -27,6 +27,12 @@ class UserController extends Controller
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
     
+    public function profile(): View
+    {
+        $user = auth()->user();
+        return view('users.profile', compact('user'));
+    }
+    
     /**
      * Show the form for creating a new resource.
      *
